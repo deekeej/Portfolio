@@ -33,15 +33,15 @@ const About = () => {
               <h5>Projects</h5>
               <small>80+ Completed</small>
             </article>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              ut, nihil sed alias qui assumenda rem! Nam sint ut unde eos
-              ratione temporibus veritatis ipsum animi modi, sit quidem illo?
-            </p>
-            <a href="#contact" className="btn btn-primary">
-              Let`s Talk
-            </a>
           </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ut,
+            nihil sed alias qui assumenda rem! Nam sint ut unde eos ratione
+            temporibus veritatis ipsum animi modi, sit quidem illo?
+          </p>
+          <a href="#contact" className="btn btn-primary">
+            Let`s Talk
+          </a>
         </div>
       </div>
     </section>
