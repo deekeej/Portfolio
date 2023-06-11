@@ -1,5 +1,4 @@
-import React from "react";
-import "./about.css";
+import "./About.css";
 import ME from "../../assets/me.png";
 import { FaAward } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";

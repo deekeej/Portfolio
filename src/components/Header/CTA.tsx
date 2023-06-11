@@ -1,4 +1,3 @@
-import React from "react";
 // import CV from '../../assets/something'
 
 const CTA = () => {
