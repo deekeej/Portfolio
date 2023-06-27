@@ -1,5 +1,5 @@
 header {
-    height: 168vh;
+    height: 130vh;
     padding-top: 7rem;
     overflow: hidden;
 }
@@ -65,13 +65,6 @@ header {
     font: 0.9rem;
 }
 
-/* =================== Media Queries (Desktop Devices) =================== */
-@media screen and (min-device-width:1024px) and (orientation:portrait) {
-    header {
-        height: 113vh;
-    }
-}
-
 /* =================== Media Queries (Tablet Devices) =================== */
 @media screen and (min-device-width: 768px) and (max-device-width: 1023px) and (orientation:portrait) {
     header {
@@ -84,9 +77,9 @@ header {
     }
 }
 
-@media screen and (min-device-width: 1180px) and (orientation:landscape) {
+@media screen and (max-device-width:1919px) and (max-height: 1079px) and (orientation:landscape) {
     header {
-        height: 148vh;
+        height: 158vh;
     }
 
     .header__socials,
@@ -96,52 +89,27 @@ header {
 }
 
 /* =================== Media Queries (Iphones) =================== */
-@media screen and (max-width: 380px) and (orientation: portrait) {
+
+/* Media Querie (Iphone SE,5,6,Pro, Galaxxy) - Portrait*/
+@media screen and (max-width: 380px) and (max-height: 670px) and (orientation: portrait) {
     header {
         height: 120vh;
     }
 
-
     .header__socials,
     .scroll__down {
-        display: none
+        display: none;
     }
 }
 
-
-@media screen and (min-width: 380px) and (max-width: 420px) and (orientation: portrait) {
+/* Media Querie (Iphone SE,5,6) - Landscape*/
+@media only screen and (min-width: 669px) and (max-width: 915px) and (max-height: 400px) and (orientation: landscape) {
     header {
-        height: 92vh;
+        height: 400vh;
     }
-
 
     .header__socials,
     .scroll__down {
-        display: none
-    }
-}
-
-/* bug*/
-@media only screen and (max-width: 668px) and (max-height: 375px) and (orientation: landscape) {
-    header {
-        height: 100vh;
-    }
-
-
-    .header__socials,
-    .scroll__down {
-        display: none
-    }
-}
-
-@media only screen and (min-width: 669px) and (max-width: 915px) and (orientation: landscape) {
-    header {
-        height: 310vh;
-    }
-
-
-    .header__socials,
-    .scroll__down {
-        display: none
+        display: none;
     }
 }
