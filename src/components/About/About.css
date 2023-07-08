@@ -6,9 +6,10 @@
 
 .about__me{
     width: 100%;
+    height: 92.8%;
     aspect-ratio: 1/1;
     border-radius: 2rem;
-    background: linear-gradient(45deg,transparent,var(--color-primary),transparent);
+    background: linear-gradient(45deg,transparent,rgb(238, 234, 223),transparent);
     display:grid;
     place-items:center;
 }
@@ -19,6 +20,7 @@
     transform: rotate(10deg);
     transition: var(--transition);
 }
+
 
 
 .about__me-image:hover {
@@ -73,6 +75,7 @@
     }
     .about__me{
         width: 50%;
+        height: 72%;
         margin: 2rem auto 4rem;
     }
 
@@ -85,6 +88,7 @@
 @media screen and (max-width:600px) {
   .about__me{
     width:65%;
+    height: 76%;
     margin: 0 auto 3rem;
   }
 
