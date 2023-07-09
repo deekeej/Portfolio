@@ -34,9 +34,13 @@ const About = () => {
             </article>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ut,
-            nihil sed alias qui assumenda rem! Nam sint ut unde eos ratione
-            temporibus veritatis ipsum animi modi, sit quidem illo?
+            I am a full stack developer with extensive experience in real-world
+            projects. In my free time, I continue to work on my own projects to
+            deliver the best possible results to my clients. I am an adaptive
+            and open-minded individual with strong critical thinking and
+            problem-solving skills. I am looking forward to the opportunity to
+            showcase my abilities and potentially contribute my skills as part
+            of your team.
           </p>
           <a href="#contact" className="btn btn-primary">
             Let`s Talk
