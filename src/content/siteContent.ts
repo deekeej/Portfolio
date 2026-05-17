@@ -37,7 +37,7 @@ export const projects = [
     tags: ["Laravel", "PHP", "REST APIs", "Redis", "PostgreSQL"],
   },
   {
-    title: "MedicWork — Telemedicine Platform (Lead Developer)",
+    title: "Telemedicine Platform (Lead Developer)",
     summary:
       "Lead developer on a telemedicine platform delivered for client use. NestJS + GraphQL backend with MikroORM and PostgreSQL, React/TypeScript frontend, WebRTC peer-to-peer video consultations, Socket.IO real-time chat, hybrid RBAC/ABAC permissions for medical record access, and GDPR-conscious consent management. Owned architecture, technology decisions, and core implementation across the stack.",
     tags: ["NestJS", "GraphQL", "React", "TypeScript", "WebRTC", "PostgreSQL"],
