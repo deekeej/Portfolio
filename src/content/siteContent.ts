@@ -114,9 +114,9 @@ export const contactChannels = [
     href: "https://m.me/daniel.krejza.71",
   },
   {
-    label: "GitHub",
-    value: "Portfolio source repository",
-    href: "https://github.com/deekeej/Portfolio",
+    label: "Instagram",
+    value: "@codewithdeekeej",
+    href: "https://www.instagram.com/codewithdeekeej/",
   },
 ] as const;
 
