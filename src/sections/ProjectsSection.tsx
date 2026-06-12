@@ -1,23 +1,30 @@
 import { SectionHeading } from "../components/SectionHeading";
-import { projects } from "../content/siteContent";
+import { projects, sectionMeta } from "../content/siteContent";
 
 export function ProjectsSection() {
   return (
     <section className="content-section" id="work">
       <div className="container">
         <SectionHeading
-          eyebrow="Selected Work"
-          title="Production work across enterprise systems, DevOps automation, and telemedicine."
-          description="These highlights reflect real delivery work spanning backend architecture, operational tooling, cloud pipelines, and end-to-end full-stack product development."
+          index={sectionMeta.work.index}
+          eyebrow={sectionMeta.work.eyebrow}
+          title={sectionMeta.work.title}
+          description={sectionMeta.work.description}
         />
 
-        <div className="project-grid">
-          {projects.map((project) => (
-            <article key={project.title} className="surface-card project-card">
-              <div className="project-glow" aria-hidden="true" />
-              <p className="project-kicker">Selected project area</p>
-              <h3>{project.title}</h3>
-              <p>{project.summary}</p>
+        <div className="project-list">
+          {projects.map((project, index) => (
+            <article key={project.title} className="project-row" data-reveal>
+              <span className="project-index" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <div className="project-main">
+                <p className="project-kicker">{project.kicker}</p>
+                <h3>{project.title}</h3>
+                <p className="project-summary">{project.summary}</p>
+              </div>
+
               <ul className="tag-list">
                 {project.tags.map((tag) => (
                   <li key={tag}>{tag}</li>

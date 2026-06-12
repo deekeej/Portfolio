@@ -1,27 +1,36 @@
 import { SectionHeading } from "../components/SectionHeading";
-import { experienceGroups } from "../content/siteContent";
+import { aboutCard, experienceGroups, sectionMeta } from "../content/siteContent";
 
 export function ExperienceSection() {
   return (
     <section className="content-section" id="experience">
       <div className="container">
         <SectionHeading
-          eyebrow="Experience"
-          title="Built through real delivery across software, infrastructure, and operations."
-          description="My experience combines application development with deployment pipelines, automation playbooks, monitoring, cloud services, and production-focused engineering practice."
+          index={sectionMeta.experience.index}
+          eyebrow={sectionMeta.experience.eyebrow}
+          title={sectionMeta.experience.title}
+          description={sectionMeta.experience.description}
         />
 
-        <div className="experience-grid">
-          {experienceGroups.map((group) => (
-            <article key={group.title} className="surface-card experience-card">
-              <h3>{group.title}</h3>
-              <ul className="pill-list">
-                {group.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
+        <div className="experience-layout">
+          <aside className="glass-card about-card" data-reveal>
+            <img src={aboutCard.portrait} alt={`${aboutCard.name} portrait`} />
+            <p className="about-name">{aboutCard.name}</p>
+            <p className="about-line">{aboutCard.line}</p>
+          </aside>
+
+          <div className="experience-grid">
+            {experienceGroups.map((group) => (
+              <article key={group.title} className="experience-group" data-reveal>
+                <h3>{group.title}</h3>
+                <ul className="pill-list">
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

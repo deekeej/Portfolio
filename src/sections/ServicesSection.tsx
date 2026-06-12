@@ -1,19 +1,23 @@
 import { SectionHeading } from "../components/SectionHeading";
-import { capabilities } from "../content/siteContent";
+import { capabilities, sectionMeta } from "../content/siteContent";
 
 export function ServicesSection() {
   return (
     <section className="content-section" id="capabilities">
       <div className="container">
         <SectionHeading
-          eyebrow="Capabilities"
-          title="The site now speaks in focused strengths instead of a long generic services list."
-          description="This section is designed to stay concise and modern, giving the redesign a sharper product-facing tone."
+          index={sectionMeta.capabilities.index}
+          eyebrow={sectionMeta.capabilities.eyebrow}
+          title={sectionMeta.capabilities.title}
+          description={sectionMeta.capabilities.description}
         />
 
         <div className="capability-grid">
-          {capabilities.map((capability) => (
-            <article key={capability.title} className="surface-card capability-card">
+          {capabilities.map((capability, index) => (
+            <article key={capability.title} className="glass-card capability-card" data-reveal>
+              <span className="card-index" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <h3>{capability.title}</h3>
               <p>{capability.text}</p>
             </article>

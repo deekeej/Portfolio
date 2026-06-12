@@ -1,4 +1,4 @@
-import portrait from "../assets/me.png";
+import portrait from "../assets/me_about_me.png";
 
 export const navigationItems = [
   { href: "#top", label: "Home", shortLabel: "Home" },
@@ -9,10 +9,13 @@ export const navigationItems = [
 ] as const;
 
 export const heroContent = {
-  eyebrow: "Daniel Krejza | Backend & Full-stack Developer",
-  title: "Backend developer building production systems for enterprise and product teams.",
+  eyebrow: "~/daniel-krejza — backend & full-stack developer",
+  titleLines: [
+    { text: "Code that ships.", accent: false },
+    { text: "Systems that last.", accent: true },
+  ],
   description:
-    "I'm a backend developer with 4+ years of hands-on experience shipping production code for one of the largest retail platforms in Central Europe. My day-to-day is application development in PHP/Laravel, Node.js, and TypeScript — with a strong supporting skill set in CI/CD, cloud automation, and infrastructure tooling that lets me own features end-to-end, from first commit to production rollout.",
+    "Backend developer with 4+ years shipping production code for one of the largest retail platforms in Central Europe. PHP/Laravel, Node.js, and TypeScript — owned end-to-end, from first commit to production rollout.",
   primaryCta: {
     href: "#work",
     label: "Explore selected work",
@@ -21,28 +24,73 @@ export const heroContent = {
     href: "#contact",
     label: "Start a conversation",
   },
-  highlights: [
-    "4+ years building backend systems in production",
-    "PHP/Laravel, Node.js, NestJS, TypeScript, GraphQL, React",
-    "Comfortable owning delivery: code, pipelines, and release",
+  stats: [
+    { value: "4+", label: "years shipping production code" },
+    { value: "Millions", label: "of customers on platforms I build for" },
+    { value: "1:1", label: "individual approach — you work directly with me" },
   ],
-  portrait,
-};
+} as const;
+
+export const marqueeSkills = [
+  "PHP / Laravel",
+  "Node.js",
+  "NestJS",
+  "TypeScript",
+  "GraphQL",
+  "React",
+  "PostgreSQL",
+  "Redis",
+  "Docker",
+  "Azure DevOps",
+  "Ansible",
+  "WebRTC",
+] as const;
+
+export const sectionMeta = {
+  work: {
+    index: "01",
+    eyebrow: "Selected work",
+    title: "Real systems. Real users. Real constraints.",
+    description:
+      "Highlights from production delivery — backend architecture, operational tooling, cloud pipelines, and end-to-end full-stack product work.",
+  },
+  capabilities: {
+    index: "02",
+    eyebrow: "Capabilities",
+    title: "Depth where it matters, range where it helps.",
+    description:
+      "A backend core with the full-stack and platform skills to carry a feature from idea to reliable release without hand-offs.",
+  },
+  experience: {
+    index: "03",
+    eyebrow: "Experience",
+    title: "A toolkit built through delivery, not tutorials.",
+    description:
+      "Application development combined with deployment pipelines, automation playbooks, cloud services, and production-focused engineering practice.",
+  },
+  contact: {
+    index: "04",
+    eyebrow: "Contact",
+  },
+} as const;
 
 export const projects = [
   {
+    kicker: "Enterprise retail",
     title: "Backend Engineer — Tesco Clubcard Platform",
     summary:
       "Backend developer on the Clubcard middleware platform serving millions of customers across Central Europe. Day-to-day Laravel/PHP development of REST APIs, Redis caching strategies, queue workers, Azure Key Vault integration, identity and authentication flows, upload and reporting pipelines, and architectural decisions around deployment and scale.",
-    tags: ["Laravel", "PHP", "REST APIs", "Redis", "PostgreSQL"],
+    tags: ["Laravel", "PHP", "REST APIs", "Redis", "PostgreSQL", "MySQL", "Azure"],
   },
   {
+    kicker: "Healthcare product",
     title: "Telemedicine Platform (Lead Developer)",
     summary:
       "Lead developer on a telemedicine platform delivered for client use. NestJS + GraphQL backend with MikroORM and PostgreSQL, React/TypeScript frontend, WebRTC peer-to-peer video consultations, Socket.IO real-time chat, hybrid RBAC/ABAC permissions for medical record access, and GDPR-conscious consent management. Owned architecture, technology decisions, and core implementation across the stack.",
     tags: ["NestJS", "GraphQL", "React", "TypeScript", "WebRTC", "PostgreSQL"],
   },
   {
+    kicker: "Platform engineering",
     title: "Delivery Automation & Platform Tooling",
     summary:
       "Supporting infrastructure work alongside backend development: 20+ Ansible playbooks for fleet management and remediation, Azure DevOps CI/CD pipelines with self-hosted agents, certificate-based authentication migration, and Docker deployment troubleshooting. The kind of platform skills that make backend delivery reliable end-to-end.",
@@ -60,7 +108,7 @@ export const capabilities = [
     text: "Shipping features end-to-end including React/TypeScript frontend work, real-time communication with WebSockets and WebRTC, and access control patterns like RBAC and ABAC for production data sensitivity requirements.",
   },
   {
-    title: "Platform & Delivery (Supporting Skill)",
+    title: "Platform & Delivery",
     text: "Hands-on experience with Azure DevOps Pipelines, Ansible automation, Docker, Azure Key Vault, and Linux administration — the parts of the job that turn good code into reliable releases without waiting for someone else.",
   },
 ] as const;
@@ -102,6 +150,21 @@ export const experienceGroups = [
   },
 ] as const;
 
+export const aboutCard = {
+  portrait,
+  name: "Daniel Krejza",
+  line: "Backend developer who treats delivery — pipelines, releases, monitoring — as part of the job, not someone else's problem.",
+} as const;
+
+export const contactContent = {
+  titleLines: [
+    { text: "Let's build something", accent: false },
+    { text: "that lasts.", accent: true },
+  ],
+  description:
+    "Tell me about your product, platform, or problem — I'll bring the engineering. Usually responding within a day.",
+} as const;
+
 export const contactChannels = [
   {
     label: "Email",
@@ -109,9 +172,9 @@ export const contactChannels = [
     href: "mailto:daniel.krejza@gmail.com",
   },
   {
-    label: "Messenger",
-    value: "Daniel Krejza",
-    href: "https://m.me/daniel.krejza.71",
+    label: "LinkedIn",
+    value: "in/daniel-krejza",
+    href: "https://www.linkedin.com/in/daniel-krejza/",
   },
   {
     label: "Instagram",
@@ -122,6 +185,5 @@ export const contactChannels = [
 
 export const footerContent = {
   signature: "Daniel Krejza",
-  note:
-    "Backend developer focused on shipping production-grade APIs and services, with the platform skills to own delivery end-to-end.",
-};
+  note: "Backend developer focused on shipping production-grade APIs and services, with the platform skills to own delivery end-to-end.",
+} as const;

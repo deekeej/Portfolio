@@ -17,6 +17,11 @@ export function SiteFooter() {
           ))}
         </nav>
       </div>
+
+      <div className="container footer-meta">
+        <span>© {new Date().getFullYear()} Daniel Krejza</span>
+        <span>Built with React, TypeScript & Three.js</span>
+      </div>
     </footer>
   );
 }

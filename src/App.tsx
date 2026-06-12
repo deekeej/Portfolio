@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { ContactSection } from "./sections/ContactSection";
 import { ExperienceSection } from "./sections/ExperienceSection";
 import { HeroSection } from "./sections/HeroSection";
@@ -7,9 +7,15 @@ import { ProjectsSection } from "./sections/ProjectsSection";
 import { ServicesSection } from "./sections/ServicesSection";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteNav } from "./components/SiteNav";
-import { HeroScene } from "./scene/HeroScene";
+import { SkillsMarquee } from "./components/SkillsMarquee";
+import { BackgroundScene } from "./scene/BackgroundScene";
 
 function App() {
+  const prefersReducedMotion = useMemo(
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    []
+  );
+
   useEffect(() => {
     const supportsPointerTracking = window.matchMedia(
       "(hover: hover) and (pointer: fine)"
@@ -39,30 +45,55 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const revealed = document.querySelectorAll("[data-reveal]");
+
+    if (prefersReducedMotion) {
+      revealed.forEach((element) => element.classList.add("is-revealed"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    revealed.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, [prefersReducedMotion]);
+
   return (
     <div className="site-shell">
-      <div className="site-chrome" aria-hidden="true">
-        <div className="site-gradient site-gradient-left" />
-        <div className="site-gradient site-gradient-right" />
-        <div className="site-grid" />
+      <div className="scene-layer" aria-hidden="true">
+        <Canvas
+          camera={{ position: [0, 0, 7], fov: 45 }}
+          dpr={[1, 1.5]}
+          gl={{ antialias: false, powerPreference: "high-performance" }}
+          frameloop={prefersReducedMotion ? "demand" : "always"}
+        >
+          <BackgroundScene />
+        </Canvas>
+      </div>
+
+      <div className="site-overlays" aria-hidden="true">
         <div className="cursor-glow" />
+        <div className="page-vignette" />
+        <div className="film-grain" />
       </div>
 
       <SiteNav />
 
-      <main>
-        <HeroSection
-          scene={
-            <Canvas
-              className="hero-canvas"
-              camera={{ position: [0, 0, 7], fov: 45 }}
-              dpr={[1, 1.25]}
-              gl={{ antialias: false, powerPreference: "high-performance" }}
-            >
-              <HeroScene />
-            </Canvas>
-          }
-        />
+      <main className="site-content">
+        <HeroSection />
+        <SkillsMarquee />
         <ProjectsSection />
         <ServicesSection />
         <ExperienceSection />

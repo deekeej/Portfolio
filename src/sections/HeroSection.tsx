@@ -1,46 +1,54 @@
-import type { ReactNode } from "react";
 import { heroContent } from "../content/siteContent";
 
-type HeroSectionProps = {
-  scene: ReactNode;
-};
-
-export function HeroSection({ scene }: HeroSectionProps) {
+export function HeroSection() {
   return (
     <section className="hero-section" id="top">
-      <div className="container hero-layout">
-        <div className="hero-copy">
-          <p className="hero-eyebrow">{heroContent.eyebrow}</p>
-          <h1>{heroContent.title}</h1>
-          <p className="hero-description">{heroContent.description}</p>
+      <div className="container hero-inner">
+        <p className="eyebrow" data-reveal>
+          {heroContent.eyebrow}
+        </p>
 
-          <div className="hero-actions">
-            <a className="btn btn-primary" href={heroContent.primaryCta.href}>
-              {heroContent.primaryCta.label}
-            </a>
-            <a className="btn btn-secondary" href={heroContent.secondaryCta.href}>
-              {heroContent.secondaryCta.label}
-            </a>
-          </div>
+        <h1 className="hero-title" data-reveal>
+          {heroContent.titleLines.map((line) => (
+            <span
+              key={line.text}
+              className={line.accent ? "hero-line hero-line-accent" : "hero-line"}
+            >
+              {line.text}
+              {line.accent ? (
+                <span className="type-cursor" aria-hidden="true" />
+              ) : null}
+            </span>
+          ))}
+        </h1>
 
-          <ul className="hero-highlights">
-            {heroContent.highlights.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+        <p className="hero-description" data-reveal>
+          {heroContent.description}
+        </p>
+
+        <div className="hero-actions" data-reveal>
+          <a className="btn btn-primary" href={heroContent.primaryCta.href}>
+            {heroContent.primaryCta.label}
+          </a>
+          <a className="btn btn-ghost" href={heroContent.secondaryCta.href}>
+            {heroContent.secondaryCta.label}
+          </a>
         </div>
 
-        <div className="hero-visual">
-          <div className="hero-scene-frame">{scene}</div>
-          <div className="hero-portrait-card">
-            <img src={heroContent.portrait} alt="Daniel Krejza portrait" />
-            <div>
-              <p>Experience</p>
-              <strong>4+ years across product engineering, cloud, and automation</strong>
+        <dl className="hero-stats" data-reveal>
+          {heroContent.stats.map((stat) => (
+            <div key={stat.label} className="hero-stat">
+              <dt>{stat.value}</dt>
+              <dd>{stat.label}</dd>
             </div>
-          </div>
-        </div>
+          ))}
+        </dl>
       </div>
+
+      <a className="scroll-cue" href="#work" aria-label="Scroll to selected work">
+        <span className="scroll-cue-label">Scroll</span>
+        <span className="scroll-cue-line" aria-hidden="true" />
+      </a>
     </section>
   );
 }
